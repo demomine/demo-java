@@ -42,7 +42,9 @@
 ###  ThreadExecutor源码分析
 >   参考`http://blog.csdn.net/rebirth_love/article/details/51954836`
 ###  BlockingQueue
->   参考`http://wsmajunfeng.iteye.com/blog/1629354`
+>   参考`http://wsmajunfeng.iteye.com/blog/1629354`,`http://www.oschina.net/question/565065_86540`
+1.  LinkedBlockingQueue newFixedThreadPool使用
+2.  SynchronousQueue    newCachedThreadPool使用
 ###  ThreadGroup
 >   参考`http://blog.csdn.net/a352193394/article/details/39323427`
 ###  RejectedExecutionHandler
