@@ -14,6 +14,14 @@
 |take    |     移除并返回队列头部的元素  |   如果队列为空，则阻塞|
 
 ### 实现类
+*   ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
+*   LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。
+*   PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
+*   DelayQueue：一个使用优先级队列实现的无界阻塞队列。
+*   SynchronousQueue：一个不存储元素的阻塞队列。
+*   LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
+*   LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
+
 1.  ArrayBlockingQueue(不会自动扩容,取和放共用一把锁,无法同时操作)
 >   在构造时需要指定容量， 并可以选择是否需要公平性，如果公平参数被设置true，
     等待时间最长的线程会优先得到处理（其实就是通过将ReentrantLock设置为true来达到这种公平性的：
