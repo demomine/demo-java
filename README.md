@@ -5,7 +5,7 @@
     `http://blog.csdn.net/z69183787/article/details/25076033`
 3.
 
-#Executor
+#   Executor
 ##  使用线程池的意义
 1.  缓存线程、进行池化，可实现线程重复利用、避免重复创建和销毁所带来的性能开销。（如楼主理解的）
 2.  当线程调度任务出现异常时，会重新创建一个线程替代掉发生异常的线程。
@@ -48,10 +48,6 @@
 ##  其他
 ###  ThreadExecutor源码分析
 >   参考`http://blog.csdn.net/rebirth_love/article/details/51954836`
-###  BlockingQueue
->   参考`http://wsmajunfeng.iteye.com/blog/1629354`,`http://www.oschina.net/question/565065_86540`
-1.  LinkedBlockingQueue newFixedThreadPool使用
-2.  SynchronousQueue    newCachedThreadPool使用
 ###  ThreadGroup
 >   参考`http://blog.csdn.net/a352193394/article/details/39323427`
 ###  RejectedExecutionHandler
@@ -131,11 +127,20 @@ Examine	|element()	|peek()	 |	-|
 
 ##  常用实现
 ### ArrayBlockingQueue
-
+1.  有界队列(数组实现),初始化后不可变更
 ### DelayQueue
-
+1.  无界队列
+2.  元素过期后才可以被取出
+3.  最先过期的位于头部
+4.  不允许null值
+5.  元素必须实现Delayed接口
 ### LinkedBlockingQueue
 
 ### PriorityBlockingQueue
 
 ### SynchronousQueue
+
+###  参考
+1.  `http://wsmajunfeng.iteye.com/blog/1629354`,`http://www.oschina.net/question/565065_86540`
+2.  LinkedBlockingQueue newFixedThreadPool使用
+3.  SynchronousQueue    newCachedThreadPool使用
