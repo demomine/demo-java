@@ -3,20 +3,7 @@
 1.  中断线程最好的，最受推荐的方式是，使用共享变量（shared variable）发出信号，告诉线程必须停止正在运行的任务。线程必须周期性的核查这一变量（尤其在冗余操作期间），然后有秩序地中止任务。
 2.  interrupt interrupted isInterrupted 区别
     `http://blog.csdn.net/z69183787/article/details/25076033`
-3.  
-
-
-
-
-
-
-
-
-
-
-
-
-
+3.
 
 #Executor
 ##  使用线程池的意义
@@ -106,3 +93,24 @@
 ##  参考文献
 1.  处理 InterruptedException
     `https://www.ibm.com/developerworks/cn/java/j-jtp05236.html`
+
+#   ReentrantLock
+
+#   工具类
+##  CountDownLatch
+1.  允许一个或多个线程等待其他线程完成操作
+2.  不可能重新初始化或者修改CountDownLatch对象的内部计数器的值
+3.  countDown()方法则一般由各个线程调用
+##  CyclicBarrier
+1.  让一组线程到达一个屏障（也可以叫同步点）时被阻塞，直到最后一个线程到达屏障时，屏障才会开门，所有被屏障拦截的线程才会继续干活
+2.  用于在线程到达屏障时，优先执行barrierAction
+##  Semaphore
+1.  用来控制同时访问特定资源的线程数量，它通过协调各个线程，以保证合理的使用公共资源
+##  Exchanger
+
+##  AbstractQueuedSynchronizer
+1.  用来实现并发工具类和读写所的抽象类
+2.  功能可以分为两类：独占功能和共享功能,一般只使用其中一个功能
+##  参考
+1.  `http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer`
+2.  `http://www.infoq.com/cn/articles/java8-abstractqueuedsynchronizer`
