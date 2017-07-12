@@ -114,3 +114,28 @@
 ##  参考
 1.  `http://www.infoq.com/cn/articles/jdk1.8-abstractqueuedsynchronizer`
 2.  `http://www.infoq.com/cn/articles/java8-abstractqueuedsynchronizer`
+3.  `http://tutorials.jenkov.com/java-util-concurrent/blockingqueue.html`
+
+
+#   BlockingQueue
+##  作用
+1.  提供线程安全的队列操作
+2.  提供多种操作队列的方法
+
+##  操作列表
+---|---|---|---|---
+-|Throws Exception |	Special Value|	Blocks|	Times Out
+Insert	|add(o)	|offer(o)|	put(o)|	offer(o, timeout, timeunit)
+Remove	|remove(o)	|poll()|	take()|	poll(timeout, timeunit)
+Examine	|element()	|peek()	 |	-|
+
+##  常用实现
+### ArrayBlockingQueue
+
+### DelayQueue
+
+### LinkedBlockingQueue
+
+### PriorityBlockingQueue
+
+### SynchronousQueue
