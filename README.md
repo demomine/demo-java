@@ -119,11 +119,11 @@
 2.  提供多种操作队列的方法
 
 ##  操作列表
----|---|---|---|---
--|Throws Exception |	Special Value|	Blocks|	Times Out
-Insert	|add(o)	|offer(o)|	put(o)|	offer(o, timeout, timeunit)
-Remove	|remove(o)	|poll()|	take()|	poll(timeout, timeunit)
-Examine	|element()	|peek()	 |	-|
+|-|Throws Exception |	Special Value|	Blocks|	Times Out|
+|---|---|---|---|---|
+|Insert	| add(o)	|offer(o)|	put(o)|	offer(o, timeout, timeunit)|
+|Remove	| remove(o)	|poll()|	take()|	poll(timeout, timeunit)|
+|Examine	| element()	|peek()	 |	- |
 
 ##  常用实现
 ### ArrayBlockingQueue
@@ -135,11 +135,20 @@ Examine	|element()	|peek()	 |	-|
 4.  不允许null值
 5.  元素必须实现Delayed接口
 ### LinkedBlockingQueue
-
+1.  链表结构队列
+2.  如果没有上界,则使用`Integer.MAX_VALUE`作为上界
+3.  内部使用ReentrantLock实现插入锁(putLock)和取出锁(takeLock)
 ### PriorityBlockingQueue
-
+1.  无界并发队列
+2.  不允许null值
+3.  必须实现Comparable接口
+4.  使用Iterator无法保证迭代顺序
 ### SynchronousQueue
-
+1.  每个 put 必须等待一个 take，反之亦然
+2.  不能在同步队列上进行 peek
+3.  队列不允许 null 元素
+4.  它非常适合于传递性设计，在这种设计中，在一个线程中运行的对象要将某些信息、事件或任务传递给在另一个线程中运行的对象，它就必须与该对象同步。
+5.
 ###  参考
 1.  `http://wsmajunfeng.iteye.com/blog/1629354`,`http://www.oschina.net/question/565065_86540`
 2.  LinkedBlockingQueue newFixedThreadPool使用
