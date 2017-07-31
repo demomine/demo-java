@@ -1,10 +1,17 @@
 package com.lance.demo.java.thread;
 
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * Created by perdonare on 2017/6/21.
  */
 public class ThreadDemo {
-
+    private final Object object = new Object();
+    private int count;
     class ThreadInstance extends Thread{
         @Override
         public void run() {
@@ -79,5 +86,35 @@ public class ThreadDemo {
         ThreadInstance3 threadInstance = new ThreadInstance3();
         threadInstance.start();
         return threadInstance;
+    }
+
+    public void notifyDemo() throws InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        for (int i = 0; i < 5; i++) {
+            executorService.execute(()->{
+                try {
+                    supportNotify();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
+
+
+    }
+
+    private void supportNotify() throws InterruptedException {
+        synchronized (object) {
+            System.out.println("thread enter: "+ Thread.currentThread().getName());
+            count++;
+            if (count == 5) {
+                // object.notify();
+                object.notifyAll();
+                System.out.println("thread notify: "+ Thread.currentThread().getName());
+            }
+            System.out.println("thread wait: "+ Thread.currentThread().getName());
+            object.wait();
+        }
+        System.out.println("thread out: "+ Thread.currentThread().getName());
     }
 }
