@@ -41,6 +41,4 @@ public class MMSCRouter {
     public Map<String, MMSCInfo> getRouteMap() {
         return Collections.unmodifiableMap(deepCopy(routeMap));
     }
-
-
 }
