@@ -19,7 +19,7 @@ public class GuardClient {
         private final Predicate stateBeOK = () -> isStateOK;
         private Broker broker = new ConditionBroker();
 
-        public void sendAlarm(AlarmInfo alarmInfo) {
+        void sendAlarm(AlarmInfo alarmInfo) {
             GuardAction<AlarmInfo> guardAction = new GuardAction<AlarmInfo>(stateBeOK) {
                 @Override
                 public AlarmInfo call(){
@@ -35,7 +35,7 @@ public class GuardClient {
             }
         }
 
-        public void changeState() {
+        void changeState() {
             try {
                 broker.broadcastAfter(() -> {
                     isStateOK=true;
